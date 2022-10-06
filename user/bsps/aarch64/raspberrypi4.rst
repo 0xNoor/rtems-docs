@@ -10,12 +10,17 @@ Raspberry Pi 4B
 The 'raspberrypi4b' BSP currently supports only the LP64 ABI. ILP32 is not
 supported. Raspberry pi 4B all variants and Raspberry Pi 400  are supported. The
 default bootloader which is used by the Raspbian OS or other OS can be used to
-boot the RTEMS. Currently, QEMU emulation is not supported. 
+boot RTEMS. SMP is currently not supported. 
+
+Raspberry Pi 4B has 2 types of interrupt controller, GIC-400 (GICv2) and ARM
+legacy generic controller. Both are supported. By default, raspberrypi 4B uses
+ARM legacy generic controller. Set ``enable_gic=1`` in the ``config.txt`` file to
+enable GIC.
 
 Clock Driver
 ------------
 
-The clock driver uses the `ARM Generic Timer`.
+The clock driver uses the `ARM Generic Timer`. 
 
 Console Driver
 --------------
@@ -32,22 +37,22 @@ Preparing to boot
 Raspberry Pi uses a different mechanism to boot. First the GPU initializes,
 loads the bootloader and then looks for the kernel img. By default the arm64
 mode looks for the ``kernel8.img``. Any other kernel can be loaded by adding
-`kernel=<img_name>` to the ``config.txt``.
+``kernel=<img_name>`` to the ``config.txt`` file.
 
 The Firmware files are required in order to boot RTEMS. The latest firmware can
 be downloaded from the `Raspberry Pi Firmware Repository
 <https://github.com/raspberrypi/firmware/>`_. USB boot is supported. All the
 files (Firmwares and kernel) must be place in the FAT32 partition only. Add
-``arm_64bit=1`` in the config.txt file in order to boot the BSP in 64bit kernel
-mode. 
+``arm_64bit=1`` in the ``config.txt`` file in order to boot the BSP in 64bit
+kernel mode. 
 
 
 UART Setup
 ^^^^^^^^^^
 
 Connect your serial device to the GPIO15 and GPIO14. Add the following to the
-config.txt file in order to use the PL011 UART0 and thus disabling the default
-Mini-uart.
+``config.txt`` file in order to use the PL011 UART0 and thus disabling the
+default Mini-uart.
 
 .. code-block:: none
 
