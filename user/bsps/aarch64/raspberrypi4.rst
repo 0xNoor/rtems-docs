@@ -14,8 +14,8 @@ boot RTEMS. SMP is currently not supported.
 
 Raspberry Pi 4B has 2 types of interrupt controller, GIC-400 (GICv2) and ARM
 legacy generic controller. Both are supported. By default, raspberrypi 4B uses
-ARM legacy generic controller. Set ``enable_gic=1`` in the ``config.txt`` file to
-enable GIC.
+ARM legacy generic controller. Set ``enable_gic=1`` in the ``config.txt`` file
+to enable GIC.
 
 Clock Driver
 ------------
