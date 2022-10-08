@@ -10,7 +10,7 @@ Raspberry Pi 4B
 The 'raspberrypi4b' BSP currently supports only the LP64 ABI. ILP32 is not
 supported. Raspberry pi 4B all variants and Raspberry Pi 400  are supported. The
 default bootloader which is used by the Raspbian OS or other OS can be used to
-boot RTEMS. SMP is currently not supported. 
+boot RTEMS. SMP is currently not supported.
 
 Raspberry Pi 4B has 2 types of interrupt controller, GIC-400 (GICv2) and ARM
 legacy generic controller. Both are supported. By default, raspberrypi 4B uses
@@ -20,7 +20,7 @@ to enable GIC.
 Clock Driver
 ------------
 
-The clock driver uses the `ARM Generic Timer`. 
+The clock driver uses the `ARM Generic Timer`.
 
 Console Driver
 --------------
@@ -48,7 +48,7 @@ be downloaded from the `Raspberry Pi Firmware Repository
 <https://github.com/raspberrypi/firmware/>`_. USB boot is supported. All the
 files (Firmwares and kernel) must be place in the FAT32 partition only. Add
 ``arm_64bit=1`` in the ``config.txt`` file in order to boot the BSP in 64bit
-kernel mode. 
+kernel mode.
 
 
 UART Setup
@@ -66,11 +66,11 @@ default Mini-uart.
   dtoverlay = disable-bt
   enable_uart=1
 
-.. note:: 
-  The Raspberry Pi 4B and 400 have an additional four PL011 UARTs. They are not 
+.. note::
+  The Raspberry Pi 4B and 400 have an additional four PL011 UARTs. They are not
   supported.
 
-Generating kernel image 
+Generating kernel image
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 The following steps show how to run ``hello.exe`` on the BSP. Other executables
